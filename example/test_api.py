@@ -4,7 +4,7 @@ import numpy as np
 import json
 
 #reading test data
-data=pd.read_csv('./input/test.csv')
+data=pd.read_excel('df_test.xlsx')
 #converting it into dictionary
 data=data.to_dict('records')
 #packaging the data dictionary into a new dictionary
@@ -17,7 +17,7 @@ headers = {
 }
 
 #making the api request
-r=requests.get(url='http://127.0.0.1:5000/predictions',headers=headers,data=json.dumps(data_json))
+r=requests.get(url='http://localhost:5001/predictions',headers=headers,data=json.dumps(data_json))
 
 #getting the json data out
 data=r.json()
